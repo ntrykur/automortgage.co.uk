@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoMortgage — Professional Websites & Lead Automation for Mortgage Brokers</title>
+<meta name="description" content="We build professional websites and automated lead systems for independent UK mortgage brokers. Get found online and never miss an enquiry.">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue: #2563eb;
+    --blue-light: #eff6ff;
+    --blue-mid: #bfdbfe;
+    --text: #1a202c;
+    --text-mid: #475569;
+    --text-light: #94a3b8;
+    --border: #e2e8f0;
+    --border-strong: #cbd5e1;
+    --surface: #ffffff;
+    --surface-off: #f8fafc;
+    --green-bg: #f0fdf4;
+    --green-text: #16a34a;
+    --radius: 8px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text);
+    background: var(--surface);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 48px;
+    border-bottom: 0.5px solid var(--border);
+    background: var(--surface);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo { font-size: 18px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; text-decoration: none; }
+  .logo span { color: var(--blue); }
+
+  .nav-btn {
+    background: var(--blue); color: #fff; border: none; padding: 10px 22px;
+    border-radius: var(--radius); font-size: 14px; font-weight: 600; cursor: pointer;
+    transition: background 0.15s; text-decoration: none; display: inline-block;
+  }
+  .nav-btn:hover { background: #1d4ed8; }
+
+  /* HERO */
+  .hero-wrap {
+    border-bottom: 0.5px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Floating graphic on left */
+  .hero-graphic-float {
+    position: absolute;
+    left: calc(50% - 560px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 240px;
+    opacity: 0.95;
+    pointer-events: none;
+  }
+
+  .hero {
+    padding: 80px 48px 72px;
+    text-align: center;
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-tag {
+    display: inline-block; background: var(--blue-light); color: var(--blue);
+    font-size: 12px; font-weight: 600; padding: 5px 16px; border-radius: 20px; margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-size: 52px; font-weight: 800; color: var(--text); line-height: 1.1;
+    margin-bottom: 20px; letter-spacing: -1.5px;
+  }
+
+  .hero p {
+    font-size: 18px; color: var(--text-mid); line-height: 1.7;
+    max-width: 520px; margin: 0 auto 36px;
+  }
+
+  .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--blue); color: #fff; border: none; padding: 15px 32px;
+    border-radius: var(--radius); font-size: 15px; font-weight: 600; cursor: pointer;
+    transition: background 0.15s; text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover { background: #1d4ed8; }
+
+  .btn-secondary {
+    background: transparent; color: var(--text); border: 0.5px solid var(--border-strong);
+    padding: 15px 32px; border-radius: var(--radius); font-size: 15px; cursor: pointer;
+    transition: background 0.15s; text-decoration: none; display: inline-block;
+  }
+  .btn-secondary:hover { background: var(--surface-off); }
+
+  .hero-note { font-size: 13px; color: var(--text-light); margin-top: 16px; }
+
+  /* FLOATING TESTIMONIAL */
+  .hero-tc-float {
+    position: absolute;
+    right: calc(50% - 560px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 220px;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-tc-card {
+    background: #ffffff;
+    border: 0.5px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  }
+
+  .hero-tc-stars {
+    color: #f59e0b;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .hero-tc-quote {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+
+  .hero-tc-author {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding-top: 12px;
+    border-top: 0.5px solid var(--border);
+  }
+
+  .hero-tc-av {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--blue-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--blue);
+    flex-shrink: 0;
+  }
+
+  .hero-tc-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .hero-tc-role {
+    font-size: 11px;
+    color: var(--text-light);
+  }
+
+  /* TRUST BAR */
+  .trust-bar {
+    display: flex; justify-content: center; flex-wrap: wrap;
+    background: var(--surface-off); border-bottom: 0.5px solid var(--border);
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 8px; font-size: 13px;
+    font-weight: 500; color: var(--text-mid); padding: 16px 28px;
+  }
+  .trust-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); flex-shrink: 0; }
+
+  /* SECTIONS */
+  .sec-wrap { border-bottom: 0.5px solid var(--border); }
+  .sec { padding: 64px 48px; max-width: 1100px; margin: 0 auto; width: 100%; }
+  .sec-label { font-size: 11px; color: var(--blue); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin-bottom: 10px; }
+  .sec h2 { font-size: 32px; font-weight: 800; color: var(--text); margin-bottom: 10px; letter-spacing: -0.5px; }
+  .sec-sub { font-size: 15px; color: var(--text-mid); line-height: 1.6; margin-bottom: 40px; }
+
+  /* HOW IT WORKS */
+  .steps-grid-full { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .step-card {
+    background: var(--surface-off); border: 0.5px solid var(--border);
+    border-radius: 12px; padding: 24px; display: flex; gap: 16px; align-items: flex-start;
+  }
+  .step-num {
+    width: 36px; height: 36px; border-radius: 50%; background: var(--blue-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; color: var(--blue); flex-shrink: 0;
+  }
+  .step-card h4 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 5px; }
+  .step-card p { font-size: 13px; color: var(--text-mid); line-height: 1.6; }
+
+
+  /* SERVICES */
+  .svc { border: 0.5px solid var(--border); border-left: 3px solid var(--blue); border-radius: var(--radius); margin-bottom: 14px; overflow: hidden; }
+  .svc-hd { display: flex; justify-content: space-between; align-items: center; padding: 18px 22px; background: var(--surface-off); cursor: pointer; user-select: none; }
+  .svc-hd:hover { background: #f1f5f9; }
+  .svc-title { font-size: 15px; font-weight: 700; color: var(--text); }
+  .svc-right { display: flex; align-items: center; gap: 10px; }
+  .svc-tag { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; }
+  .tag-green { background: var(--green-bg); color: var(--green-text); }
+  .tag-blue { background: var(--blue-light); color: var(--blue); }
+  .svc-chevron { font-size: 12px; color: var(--text-light); transition: transform 0.2s; display: inline-block; }
+  .svc-chevron.open { transform: rotate(180deg); }
+  .svc-body { padding: 22px; background: var(--surface); border-top: 0.5px solid var(--border); display: none; }
+  .svc-body.open { display: block; }
+  .svc-body p { font-size: 14px; color: var(--text-mid); line-height: 1.7; margin-bottom: 14px; }
+  .svc-body ul { padding-left: 0; list-style: none; }
+  .svc-body li { font-size: 14px; color: var(--text-mid); padding: 5px 0; display: flex; align-items: center; gap: 10px; }
+  .svc-body li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--blue); flex-shrink: 0; }
+
+  /* WHY US */
+  .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .why-card { background: var(--surface-off); border: 0.5px solid var(--border); border-radius: 10px; padding: 20px; }
+  .why-stat { font-size: 32px; font-weight: 800; color: var(--blue); margin-bottom: 6px; letter-spacing: -1px; }
+  .why-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .why-desc { font-size: 12px; color: var(--text-mid); line-height: 1.5; }
+
+  /* TESTIMONIALS */
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .tc { border: 0.5px solid var(--border); border-radius: 12px; padding: 24px; background: var(--surface); display: flex; flex-direction: column; gap: 14px; }
+  .tc-stars { color: #f59e0b; font-size: 15px; letter-spacing: 2px; }
+  .tc-text { font-size: 14px; color: var(--text-mid); line-height: 1.7; font-style: italic; flex: 1; }
+  .tc-author { display: flex; align-items: center; gap: 12px; padding-top: 14px; border-top: 0.5px solid var(--border); }
+  .tc-av { width: 36px; height: 36px; border-radius: 50%; background: var(--blue-light); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: var(--blue); flex-shrink: 0; }
+  .tc-name { font-size: 13px; font-weight: 700; color: var(--text); }
+  .tc-role { font-size: 12px; color: var(--text-light); }
+
+  /* PRICING */
+  .pricing-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .price-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .price-card { border: 0.5px solid var(--border); border-radius: 10px; padding: 24px; background: var(--surface); }
+  .price-card.featured { border: 2px solid var(--blue); }
+  .price-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); margin-bottom: 10px; }
+  .price-label.accent { color: var(--blue); }
+  .price-amount { font-size: 28px; font-weight: 800; color: var(--text); margin-bottom: 2px; letter-spacing: -0.5px; }
+  .price-amount span { font-size: 13px; font-weight: 400; color: var(--text-light); }
+  .price-monthly { font-size: 13px; color: var(--blue); font-weight: 600; margin-bottom: 12px; }
+  .price-desc { font-size: 13px; color: var(--text-mid); line-height: 1.5; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 0.5px solid var(--border); }
+  .price-features { list-style: none; padding: 0; }
+  .price-features li { font-size: 13px; color: var(--text-mid); padding: 4px 0; display: flex; align-items: center; gap: 8px; }
+  .price-features li::before { content: "✓"; color: var(--blue); font-weight: 700; font-size: 13px; flex-shrink: 0; }
+  .price-maintenance { border: 0.5px solid var(--border); border-radius: 10px; padding: 20px 24px; background: var(--surface-off); display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .price-maintenance h4 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .price-maintenance p { font-size: 13px; color: var(--text-mid); line-height: 1.5; }
+  .price-maintenance-amount { font-size: 24px; font-weight: 800; color: var(--text); white-space: nowrap; letter-spacing: -0.5px; }
+  .price-maintenance-amount span { font-size: 13px; font-weight: 400; color: var(--text-light); }
+
+  .price-testimonial { display: flex; flex-direction: column; justify-content: flex-start; padding-top: 8px; }
+  .price-tc { border: 0.5px solid var(--border); border-radius: 12px; padding: 28px; background: var(--surface-off); position: sticky; top: 88px; }
+  .price-tc .tc-stars { color: #f59e0b; font-size: 15px; letter-spacing: 2px; margin-bottom: 16px; }
+  .price-tc-text { font-size: 16px; color: var(--text); line-height: 1.7; font-style: italic; margin-bottom: 20px; font-weight: 500; }
+  .price-tc-author { display: flex; align-items: center; gap: 12px; padding-top: 20px; border-top: 0.5px solid var(--border); }
+  .price-tc-av { width: 40px; height: 40px; border-radius: 50%; background: var(--blue-light); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: var(--blue); flex-shrink: 0; }
+  .price-tc-name { font-size: 14px; font-weight: 700; color: var(--text); }
+  .price-tc-role { font-size: 12px; color: var(--text-light); }
+  .price-tc-tag { display: inline-block; background: var(--green-bg); color: var(--green-text); font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 20px; margin-bottom: 16px; }
+
+  /* FORM */
+  .audit-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .audit-box { background: var(--surface-off); border: 0.5px solid var(--border); border-radius: 10px; padding: 24px; margin-bottom: 20px; }
+  .free-tag { display: inline-block; background: var(--blue-light); color: var(--blue); font-size: 10px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px; letter-spacing: 0.5px; }
+  .audit-box h3 { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+  .audit-box p { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+  .form { display: flex; flex-direction: column; gap: 12px; }
+  .form input, .form select, .form textarea {
+    padding: 12px 16px; border: 0.5px solid var(--border-strong); border-radius: var(--radius);
+    font-size: 15px; background: var(--surface); color: var(--text); width: 100%;
+    font-family: inherit; appearance: none; -webkit-appearance: none; transition: border-color 0.15s; outline: none;
+  }
+  .form input:focus, .form select:focus, .form textarea:focus { border-color: var(--blue); }
+  .form select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394a3b8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 16px center;
+    background-color: var(--surface); padding-right: 40px; cursor: pointer;
+  }
+  .form textarea { resize: none; height: 100px; line-height: 1.6; }
+  .form-btn {
+    background: var(--blue); color: #fff; border: none; padding: 15px;
+    border-radius: var(--radius); font-size: 16px; font-weight: 700; cursor: pointer;
+    width: 100%; transition: background 0.15s; font-family: inherit;
+  }
+  .form-btn:hover { background: #1d4ed8; }
+  .form-note { font-size: 12px; color: var(--text-light); margin-top: 2px; }
+
+  .what-next { position: sticky; top: 88px; }
+  .what-next h3 { font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 8px; letter-spacing: -0.3px; }
+  .what-next-sub { font-size: 14px; color: var(--text-mid); margin-bottom: 28px; line-height: 1.6; }
+  .next-steps { display: flex; flex-direction: column; }
+  .next-step { display: flex; gap: 16px; align-items: flex-start; padding: 16px 0; border-bottom: 0.5px solid var(--border); }
+  .next-step:last-child { border-bottom: none; }
+  .next-icon { width: 36px; height: 36px; border-radius: 50%; background: var(--blue-light); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  .next-step h4 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .next-step p { font-size: 13px; color: var(--text-mid); line-height: 1.5; }
+  .next-cta { margin-top: 24px; background: var(--surface-off); border: 0.5px solid var(--border); border-radius: 10px; padding: 20px; }
+  .next-cta p { font-size: 13px; color: var(--text-mid); line-height: 1.6; margin-bottom: 10px; }
+  .next-cta a { color: var(--blue); font-weight: 600; font-size: 13px; text-decoration: none; }
+
+  .success-msg { display: none; background: var(--green-bg); border: 0.5px solid #bbf7d0; border-radius: var(--radius); padding: 24px; text-align: center; }
+  .success-msg h4 { font-size: 17px; font-weight: 700; color: var(--green-text); margin-bottom: 8px; }
+  .success-msg p { font-size: 14px; color: #15803d; line-height: 1.6; }
+
+  /* ABOUT */
+  .about-section { padding: 64px 48px; text-align: center; }
+  .about-header { max-width: 1100px; margin: 0 auto 40px; }
+  .about-profile { display: flex; flex-direction: column; align-items: center; gap: 20px; max-width: 600px; margin: 0 auto; }
+  .about-av { width: 72px; height: 72px; border-radius: 50%; background: var(--blue-light); display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700; color: var(--blue); flex-shrink: 0; }
+  .about-text h3 { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 12px; }
+  .about-text p { font-size: 15px; color: var(--text-mid); line-height: 1.7; }
+
+  /* FOOTER */
+  .footer { padding: 28px 48px; background: var(--surface-off); border-top: 0.5px solid var(--border); text-align: center; }
+  .footer p { font-size: 13px; color: var(--text-light); }
+  .footer a { color: var(--blue); text-decoration: none; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .nav { padding: 14px 20px; }
+    .hero { padding: 48px 20px 40px; }
+    .hero h1 { font-size: 32px; letter-spacing: -0.5px; }
+    .hero p { font-size: 15px; }
+    .hero-graphic-float { display: none; }
+    .hero-tc-float { display: none; }
+    .trust-item { padding: 10px 14px; font-size: 11px; }
+    .sec { padding: 40px 20px; }
+    .sec h2 { font-size: 24px; }
+    .steps-grid-full { grid-template-columns: 1fr; gap: 12px; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .pricing-layout { grid-template-columns: 1fr; }
+    .price-cards { grid-template-columns: 1fr; }
+    .price-maintenance { flex-direction: column; align-items: flex-start; }
+    .audit-layout { grid-template-columns: 1fr; gap: 32px; }
+    .what-next { position: static; }
+    .about-section { padding: 40px 20px; }
+    .footer { padding: 20px; }
+  }
+
+  @media (max-width: 480px) {
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .hero h1 { font-size: 28px; }
+    .about-stats { grid-template-columns: 1fr; }
+  }
+
+  
+
+  /* SCROLL ANIMATIONS */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-up-delay-1 { transition-delay: 0.1s; }
+  .fade-up-delay-2 { transition-delay: 0.2s; }
+  .fade-up-delay-3 { transition-delay: 0.3s; }
+
+  /* HOVER LIFTS */
+  .tc {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .tc:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    cursor: pointer;
+  }
+
+  .why-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .why-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 24px rgba(37,99,235,0.1);
+    cursor: pointer;
+  }
+
+  .step-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .step-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    cursor: pointer;
+  }
+
+  .price-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .price-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 24px rgba(37,99,235,0.1);
+    cursor: pointer;
+  }
+
+  /* BUTTON SCALE */
+  .btn-primary, .btn-secondary, .nav-btn {
+    transition: background 0.15s, transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-primary:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 16px rgba(37,99,235,0.3);
+  }
+  .btn-secondary:hover {
+    transform: scale(1.03);
+  }
+  .nav-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 16px rgba(37,99,235,0.3);
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="logo" href="#">Auto<span>Mortgage</span></a>
+  <a class="nav-btn" href="#audit">Book free audit</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero-wrap">
+
+  <!-- FLOATING PHONE GRAPHIC LEFT -->
+  <div class="hero-graphic-float">
+    <svg viewBox="0 0 300 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Phone body -->
+      <rect x="10" y="6" width="280" height="548" rx="36" fill="#1a202c"/>
+      <rect x="22" y="20" width="256" height="520" rx="26" fill="#111827"/>
+      <!-- Notch -->
+      <rect x="110" y="20" width="80" height="20" rx="10" fill="#1a202c"/>
+      <!-- Status dots -->
+      <circle cx="50" cy="30" r="3" fill="#374151"/>
+      <circle cx="250" cy="30" r="3" fill="#374151"/>
+
+      <!-- CARD 1: New lead received -->
+      <rect x="36" y="58" width="228" height="130" rx="14" fill="#1e3a5f"/>
+      <rect x="36" y="58" width="7" height="130" rx="3" fill="#3b82f6"/>
+      <text x="54" y="84" font-family="-apple-system,sans-serif" font-size="13" font-weight="700" fill="#93c5fd">🔔  New lead received</text>
+      <rect x="54" y="92" width="180" height="1" fill="#1e40af" opacity="0.4"/>
+      <text x="54" y="110" font-family="-apple-system,sans-serif" font-size="12" fill="#e2e8f0">Name:   John Smith</text>
+      <text x="54" y="128" font-family="-apple-system,sans-serif" font-size="12" fill="#e2e8f0">Type:    First time buyer</text>
+      <text x="54" y="146" font-family="-apple-system,sans-serif" font-size="12" fill="#e2e8f0">Budget: £280,000</text>
+      <text x="54" y="176" font-family="-apple-system,sans-serif" font-size="11" font-weight="600" fill="#60a5fa">via yourwebsite.co.uk</text>
+
+      <!-- Connector -->
+      <line x1="150" y1="190" x2="150" y2="210" stroke="#374151" stroke-width="2" stroke-dasharray="4 3"/>
+      <polygon points="144,206 150,218 156,206" fill="#374151"/>
+
+      <!-- CARD 2: Lead qualified -->
+      <rect x="36" y="218" width="228" height="118" rx="14" fill="#052e16" opacity="0.9"/>
+      <rect x="36" y="218" width="7" height="118" rx="3" fill="#22c55e"/>
+      <text x="54" y="244" font-family="-apple-system,sans-serif" font-size="13" font-weight="700" fill="#86efac">✓  Lead qualified</text>
+      <rect x="54" y="252" width="180" height="1" fill="#166534" opacity="0.4"/>
+      <text x="54" y="270" font-family="-apple-system,sans-serif" font-size="12" fill="#dcfce7">Priority:  High</text>
+      <text x="54" y="288" font-family="-apple-system,sans-serif" font-size="12" fill="#dcfce7">Type:     First time buyer</text>
+      <text x="54" y="306" font-family="-apple-system,sans-serif" font-size="12" fill="#dcfce7">Status:  Ready to contact</text>
+
+      <!-- Connector -->
+      <line x1="150" y1="338" x2="150" y2="358" stroke="#374151" stroke-width="2" stroke-dasharray="4 3"/>
+      <polygon points="144,354 150,366 156,354" fill="#374151"/>
+
+      <!-- CARD 3: Automatic email sent -->
+      <rect x="36" y="366" width="228" height="118" rx="14" fill="#2e1065" opacity="0.9"/>
+      <rect x="36" y="366" width="7" height="118" rx="3" fill="#a855f7"/>
+      <text x="54" y="392" font-family="-apple-system,sans-serif" font-size="13" font-weight="700" fill="#d8b4fe">✉  Automatic email sent</text>
+      <rect x="54" y="400" width="180" height="1" fill="#6d28d9" opacity="0.4"/>
+      <text x="54" y="418" font-family="-apple-system,sans-serif" font-size="12" fill="#ede9fe">To:       john@email.com</text>
+      <text x="54" y="436" font-family="-apple-system,sans-serif" font-size="12" fill="#ede9fe">Reply:   Personalised</text>
+      <text x="54" y="454" font-family="-apple-system,sans-serif" font-size="12" fill="#ede9fe">Sent in 3 seconds ✓</text>
+
+      <!-- Home indicator -->
+      <rect x="110" y="534" width="80" height="5" rx="2" fill="#374151"/>
+    </svg>
+  </div>
+
+  <!-- FLOATING TESTIMONIAL RIGHT -->
+  <div class="hero-tc-float">
+    <div class="hero-tc-card">
+      <div class="hero-tc-stars">★★★★★</div>
+      <p class="hero-tc-quote">"3 new enquiries in my first week. Never had that before."</p>
+      <div class="hero-tc-author">
+        <div class="hero-tc-av">JH</div>
+        <div>
+          <div class="hero-tc-name">James H.</div>
+          <div class="hero-tc-role">Broker, Manchester</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- HERO CONTENT CENTRED -->
+  <section class="hero">
+    <div class="hero-tag">For independent UK mortgage brokers</div>
+    <h1>More leads.<br>Less effort.<br>Fully automated.</h1>
+    <p>We build professional websites and automated lead systems so mortgage brokers spend more time closing deals — not chasing enquiries.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#audit">Book a free website audit</a>
+      <a class="btn-secondary" href="#how">See what we do ↓</a>
+    </div>
+    <div class="hero-note">Free audit · No obligation · We reply instantly</div>
+  </section>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><div class="trust-dot"></div>UK based</div>
+  <div class="trust-item"><div class="trust-dot"></div>Live within 7 days</div>
+  <div class="trust-item"><div class="trust-dot"></div>Transparent pricing</div>
+  <div class="trust-item"><div class="trust-dot"></div>Built for brokers</div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="sec-wrap">
+  <section class="sec" id="how">
+    <div class="sec-label">How it works</div>
+    <h2>Three simple steps</h2>
+    <p class="sec-sub">From first contact to live website — here's exactly what happens.</p>
+    <div class="steps-grid-full">
+      <div class="step-card fade-up">
+        <div class="step-num">1</div>
+        <div>
+          <h4>Book your free audit</h4>
+          <p>We review your current online presence and tell you exactly what's costing you leads — at no cost and no obligation.</p>
+        </div>
+      </div>
+      <div class="step-card fade-up">
+        <div class="step-num">2</div>
+        <div>
+          <h4>We craft your website</h4>
+          <p>We build a professional website tailored to your business, your brand, and your clients. You review and approve everything before it goes live.</p>
+        </div>
+      </div>
+      <div class="step-card fade-up">
+        <div class="step-num">3</div>
+        <div>
+          <h4>Clients start finding you</h4>
+          <p>Your new website goes live within 7 days. With a professional online presence, clients can find you, trust you, and contact you — automatically.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- SERVICES -->
+<div class="sec-wrap">
+  <section class="sec" id="services">
+    <div class="sec-label">What we do</div>
+    <h2>Two simple services</h2>
+    <p class="sec-sub">Click either service to learn more about what's included.</p>
+    <div class="svc">
+      <div class="svc-hd" onclick="toggleSvc(this)">
+        <span class="svc-title">Website creation</span>
+        <span class="svc-right"><span class="svc-tag tag-green">Most popular</span><span class="svc-chevron">▼</span></span>
+      </div>
+      <div class="svc-body">
+        <p>We craft a professional website built specifically for mortgage brokers — with care and attention to every detail. Every site includes a lead capture form and mobile-friendly design, and is live within days.</p>
+        <ul>
+          <li>Professional design tailored to your brand</li>
+          <li>Built-in contact and lead capture forms</li>
+          <li>Mobile friendly — looks great on all devices</li>
+          <li>Live within 7 days</li>
+        </ul>
+      </div>
+    </div>
+    <div class="svc">
+      <div class="svc-hd" onclick="toggleSvc(this)">
+        <span class="svc-title">Lead automation</span>
+        <span class="svc-right"><span class="svc-tag tag-blue">Add-on</span><span class="svc-chevron">▼</span></span>
+      </div>
+      <div class="svc-body">
+        <p>We connect automated systems that capture enquiries, qualify each lead using AI, and send a personalised response instantly — so you never miss a potential client, even at 3am.</p>
+        <ul>
+          <li>AI reads and qualifies every enquiry automatically</li>
+          <li>Personalised response sent to the lead instantly</li>
+          <li>Instant notification to you for every new enquiry</li>
+          <li>Works 24/7 even when you're with clients</li>
+          <li>Set up once, runs forever</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- WHY US -->
+<div class="sec-wrap">
+  <section class="sec" id="why">
+    <div class="sec-label">Why us</div>
+    <h2>Why brokers choose AutoMortgage</h2>
+    <p class="sec-sub">The numbers speak for themselves.</p>
+    <div class="why-grid">
+      <div class="why-card fade-up">
+        <div class="why-stat" data-target="87" data-suffix="%">87%</div>
+        <div class="why-title">Clients Google you first</div>
+        <div class="why-desc">87% of people check a business online before making contact. No website means no client.</div>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-stat" data-target="3" data-suffix="×">3×</div>
+        <div class="why-title">More enquiries online</div>
+        <div class="why-desc">Brokers with professional websites receive on average 3x more inbound enquiries than those without.</div>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-stat" data-target="7" data-suffix="">7</div>
+        <div class="why-title">Days to go live</div>
+        <div class="why-desc">From first conversation to live website in 7 days. Most agencies take 6–8 weeks.</div>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-stat" data-target="0" data-suffix="">£0</div>
+        <div class="why-title">Hidden fees</div>
+        <div class="why-desc">One fixed price, no surprises. Everything included upfront — you always know exactly what you're paying.</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="sec-wrap">
+  <section class="sec" id="testimonials">
+    <div class="sec-label">Testimonials</div>
+    <h2>What brokers say</h2>
+    <p class="sec-sub">Trusted by independent mortgage brokers across the UK.</p>
+    <div class="testimonials-grid">
+      <div class="tc fade-up">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-text">"Within two weeks of my new website going live I had three new enquiries come through the contact form. I'd never had that happen before — it's already paid for itself."</p>
+        <div class="tc-author">
+          <div class="tc-av">JH</div>
+          <div><div class="tc-name">James H.</div><div class="tc-role">Independent broker, Manchester</div></div>
+        </div>
+      </div>
+      <div class="tc fade-up">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-text">"I was sceptical at first but the site was live in 5 days and looks far better than anything I could have done myself. The automated follow-up emails save me hours every week."</p>
+        <div class="tc-author">
+          <div class="tc-av">SR</div>
+          <div><div class="tc-name">Sarah R.</div><div class="tc-role">Mortgage adviser, Leeds</div></div>
+        </div>
+      </div>
+      <div class="tc fade-up">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-text">"Most of my clients used to come through word of mouth. Now I'm getting enquiries from Google every week from people I've never met. Genuinely changed how my business works."</p>
+        <div class="tc-author">
+          <div class="tc-av">DK</div>
+          <div><div class="tc-name">David K.</div><div class="tc-role">Independent broker, Birmingham</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- PRICING -->
+<div class="sec-wrap">
+  <section class="sec" id="pricing">
+    <div class="sec-label">Pricing</div>
+    <h2>Simple, transparent pricing</h2>
+    <p class="sec-sub">One fixed price. No hidden fees. No surprises.</p>
+    <div class="pricing-layout">
+      <div>
+        <div class="price-cards">
+          <div class="price-card fade-up">
+            <div class="price-label">Website only</div>
+            <div class="price-amount">£299 <span>one off</span></div>
+            <div class="price-desc">Everything you need to get found online and look professional.</div>
+            <ul class="price-features">
+              <li>Professional website</li>
+              <li>Contact form included</li>
+              <li>Mobile friendly</li>
+              <li>Live in 7 days</li>
+              <li>No monthly fees</li>
+            </ul>
+          </div>
+          <div class="price-card featured fade-up fade-up-delay-1">
+            <div class="price-label accent">Website + automation</div>
+            <div class="price-amount">£499 <span>one off</span></div>
+            <div class="price-monthly">+ £29/month for AI tools</div>
+            <div class="price-desc">Website plus AI-powered lead capture so you never miss an enquiry.</div>
+            <ul class="price-features">
+              <li>Everything in website</li>
+              <li>AI lead qualification</li>
+              <li>Instant personalised replies</li>
+              <li>Works 24/7</li>
+              <li>Set up once, runs forever</li>
+            </ul>
+          </div>
+        </div>
+        <div class="price-maintenance">
+          <div>
+            <h4>Monthly maintenance & updates</h4>
+            <p>We keep your website updated, secure, and running perfectly. Text changes, new sections, seasonal updates — all included.</p>
+          </div>
+          <div class="price-maintenance-amount">£29 <span>/month</span></div>
+        </div>
+      </div>
+      <div class="price-testimonial">
+        <div class="price-tc">
+          <div class="price-tc-tag">On pricing</div>
+          <div class="tc-stars">★★★★★</div>
+          <p class="price-tc-text">"I nearly didn't go ahead because I thought it would cost thousands. £299 for a professional website that actually brings in clients — I made it back within the first month."</p>
+          <div class="price-tc-author">
+            <div class="price-tc-av">MT</div>
+            <div>
+              <div class="price-tc-name">Mark T.</div>
+              <div class="price-tc-role">Independent broker, Sheffield</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FREE AUDIT FORM -->
+<div class="sec-wrap">
+  <section class="sec" id="audit">
+    <div class="sec-label">Free audit</div>
+    <h2>Get a free website audit</h2>
+    <div class="audit-layout">
+      <div>
+        <div class="audit-box">
+          <div class="free-tag">100% FREE</div>
+          <h3>What you get — at no cost</h3>
+          <p>We review your current website (or lack of one) and tell you exactly what's costing you leads online. No sales pitch, no obligation — just honest advice.</p>
+        </div>
+        <div class="form" id="auditForm">
+          <input type="text" id="fname" placeholder="Your name" required />
+          <input type="text" id="fbusiness" placeholder="Business name" required />
+          <input type="email" id="femail" placeholder="Email address" required />
+          <input type="text" id="fwebsite" placeholder="Website URL (leave blank if you don't have one)" />
+          <select id="fleads" required>
+            <option value="" disabled selected>How many leads do you get online per month?</option>
+            <option>None currently</option>
+            <option>1–5 per month</option>
+            <option>6–15 per month</option>
+            <option>16–30 per month</option>
+            <option>30+ per month</option>
+          </select>
+          <select id="fhow" required>
+            <option value="" disabled selected>How do clients mainly find you?</option>
+            <option>Word of mouth and referrals</option>
+            <option>Google search or Maps</option>
+            <option>Social media</option>
+            <option>A mix of different sources</option>
+            <option>I'm not sure</option>
+          </select>
+          <textarea id="fchallenge" placeholder="What's your biggest challenge right now? (e.g. not enough enquiries, website looks outdated, no online presence at all)"></textarea>
+          <button class="form-btn" type="button" onclick="handleSubmit()">Get my free audit →</button>
+        </div>
+        <div class="success-msg" id="successMsg">
+          <h4>We've received your audit request!</h4>
+          <p>We'll be in touch instantly with your personalised website audit. Check your inbox shortly.</p>
+        </div>
+        <div class="form-note" id="formNote">We reply instantly. Your details are never shared or sold.</div>
+      </div>
+      <div class="what-next">
+        <h3>What happens next</h3>
+        <p class="what-next-sub">Here's exactly what to expect after you submit your details.</p>
+        <div class="next-steps">
+          <div class="next-step">
+            <div class="next-icon">📋</div>
+            <div><h4>We review your details instantly</h4><p>As soon as you submit, we review your website and online presence straight away.</p></div>
+          </div>
+          <div class="next-step">
+            <div class="next-icon">📧</div>
+            <div><h4>You receive a personalised audit</h4><p>We send you a clear, honest breakdown of what's costing you leads online — no jargon.</p></div>
+          </div>
+          <div class="next-step">
+            <div class="next-icon">📞</div>
+            <div><h4>We jump on a quick call</h4><p>A short 15 minute call to walk through your audit and answer any questions you have.</p></div>
+          </div>
+          <div class="next-step">
+            <div class="next-icon">🚀</div>
+            <div><h4>Your site goes live in 7 days</h4><p>If you're happy to proceed, your professional website is live within a week.</p></div>
+          </div>
+        </div>
+        <div class="next-cta">
+          <p>Prefer to reach out directly? No problem at all.</p>
+          <a href="mailto:nikitatrykur@gmail.com">nikitatrykur@gmail.com →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ABOUT -->
+<div class="sec-wrap">
+  <div class="about-section">
+    <div class="about-header">
+      <div class="sec-label">About</div>
+      <h2 style="font-size:32px;font-weight:800;color:var(--text);margin-bottom:10px;letter-spacing:-0.5px;">Who's behind AutoMortgage</h2>
+      <p style="font-size:15px;color:var(--text-mid);line-height:1.6;">Built by someone who understands both technology and what brokers actually need.</p>
+    </div>
+    <div class="about-profile">
+      <div class="about-av">NT</div>
+      <div class="about-text">
+        <h3>Nikita Trykur</h3>
+        <p>At 19, I combine deep technical expertise in AI and computing with a sharp commercial mindset — building professional websites and automated systems that help independent mortgage brokers get found online and never miss a lead. Based in the UK.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2026 AutoMortgage · <a href="https://automortgage.co.uk">automortgage.co.uk</a> · <a href="mailto:nikitatrykur@gmail.com">nikitatrykur@gmail.com</a></p>
+</footer>
+
+<script>
+  function toggleSvc(header) {
+    const body = header.nextElementSibling;
+    const chevron = header.querySelector('.svc-chevron');
+    const isOpen = body.classList.contains('open');
+    body.classList.toggle('open', !isOpen);
+    chevron.classList.toggle('open', !isOpen);
+  }
+
+  const APPS_SCRIPT_URL = '';
+
+  function handleSubmit() {
+    const name = document.getElementById('fname').value.trim();
+    const business = document.getElementById('fbusiness').value.trim();
+    const email = document.getElementById('femail').value.trim();
+    const website = document.getElementById('fwebsite').value.trim();
+    const leads = document.getElementById('fleads').value;
+    const how = document.getElementById('fhow').value;
+    const challenge = document.getElementById('fchallenge').value.trim();
+
+    if (!name || !business || !email) {
+      alert('Please fill in your name, business name and email address.');
+      return;
+    }
+    if (!email.includes('@')) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    const formData = { name, business, email, website, leads, how, challenge, submittedAt: new Date().toISOString() };
+
+    if (APPS_SCRIPT_URL) {
+      const cbName = 'cb_' + Math.random().toString(36).slice(2);
+      window[cbName] = function() { delete window[cbName]; const el = document.getElementById(cbName); if (el) el.remove(); };
+      const script = document.createElement('script');
+      script.id = cbName;
+      script.src = APPS_SCRIPT_URL + '?callback=' + cbName + '&data=' + encodeURIComponent(JSON.stringify(formData));
+      document.head.appendChild(script);
+    }
+
+    document.getElementById('auditForm').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+    document.getElementById('formNote').style.display = 'none';
+  }
+</script>
+
+
+
+<script>
+
+
+  // ── SCROLL FADE IN ─────────────────────────────────────────────
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  fadeEls.forEach(el => observer.observe(el));
+
+  // ── COUNTER ANIMATION ──────────────────────────────────────────
+  function animateCounter(el, target, suffix, duration) {
+    let start = 0;
+    const isDecimal = target % 1 !== 0;
+    const step = (timestamp) => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = isDecimal ? (eased * target).toFixed(1) : Math.floor(eased * target);
+      el.textContent = current + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const stat = entry.target;
+        const text = stat.dataset.target;
+        const suffix = stat.dataset.suffix || '';
+        if (text) animateCounter(stat, parseFloat(text), suffix, 1800);
+        statsObserver.unobserve(stat);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.why-stat[data-target]').forEach(el => statsObserver.observe(el));
+</script>
+
+</body>
+</html>
