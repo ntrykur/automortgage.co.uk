@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoMortgage — Professional Websites & Lead Automation for Mortgage Brokers</title>
+<meta name="description" content="We build professional websites and automated lead systems for independent UK mortgage brokers. Get found online and never miss an enquiry.">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1a2744;
+    --blue: #2563eb;
+    --blue-light: #eff6ff;
+    --blue-mid: #bfdbfe;
+    --text: #1a202c;
+    --text-mid: #475569;
+    --text-light: #94a3b8;
+    --border: #e2e8f0;
+    --border-strong: #cbd5e1;
+    --surface: #ffffff;
+    --surface-off: #f8fafc;
+    --green-bg: #f0fdf4;
+    --green-text: #16a34a;
+    --radius: 8px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text);
+    background: #f1f5f9;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .page {
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--surface);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.06);
+  }
+
+  /* NAV */
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 0.5px solid var(--border);
+    background: var(--surface);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.3px;
+    text-decoration: none;
+  }
+
+  .logo span { color: var(--blue); }
+
+  .nav-btn {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 9px 18px;
+    border-radius: var(--radius);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .nav-btn:hover { background: #1d4ed8; }
+
+  /* HERO */
+  .hero {
+    padding: 56px 24px 48px;
+    text-align: center;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: var(--blue-light);
+    color: var(--blue);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    letter-spacing: 0.3px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero p {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.7;
+    max-width: 400px;
+    margin: 0 auto 28px;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 13px 26px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: #1d4ed8; }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border: 0.5px solid var(--border-strong);
+    padding: 13px 26px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.15s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover { background: var(--surface-off); }
+
+  .hero-note {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 14px;
+  }
+
+  /* TRUST BAR */
+  .trust-bar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: var(--surface-off);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-mid);
+    padding: 13px 18px;
+  }
+
+  .trust-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--blue);
+    flex-shrink: 0;
+  }
+
+  /* SECTIONS */
+  .sec {
+    padding: 36px 24px;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .sec-label {
+    font-size: 10px;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .sec h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+
+  .sec-sub {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  /* STEPS */
+  .steps { display: flex; flex-direction: column; }
+
+  .step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 16px 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .step:last-child { border-bottom: none; }
+
+  .step-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--blue-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--blue);
+    flex-shrink: 0;
+  }
+
+  .step h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .step p {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  /* SERVICES */
+  .svc {
+    border: 0.5px solid var(--border);
+    border-left: 3px solid var(--blue);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+
+  .svc-hd {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 18px;
+    background: var(--surface-off);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .svc-hd:hover { background: #f1f5f9; }
+
+  .svc-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .svc-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .svc-tag {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 20px;
+  }
+
+  .tag-green { background: var(--green-bg); color: var(--green-text); }
+  .tag-blue { background: var(--blue-light); color: var(--blue); }
+
+  .svc-chevron {
+    font-size: 12px;
+    color: var(--text-light);
+    transition: transform 0.2s;
+    display: inline-block;
+  }
+
+  .svc-chevron.open { transform: rotate(180deg); }
+
+  .svc-body {
+    padding: 18px;
+    background: var(--surface);
+    border-top: 0.5px solid var(--border);
+    display: none;
+  }
+
+  .svc-body.open { display: block; }
+
+  .svc-body p {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .svc-body ul { padding-left: 0; list-style: none; }
+
+  .svc-body li {
+    font-size: 13px;
+    color: var(--text-mid);
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .svc-body li::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--blue);
+    flex-shrink: 0;
+  }
+
+  /* WHY US */
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .why-card {
+    background: var(--surface-off);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+  }
+
+  .why-stat {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+  }
+
+  .why-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 5px;
+  }
+
+  .why-desc {
+    font-size: 12px;
+    color: var(--text-mid);
+    line-height: 1.5;
+  }
+
+  /* PRICING */
+  .price-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .price-card {
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    background: var(--surface);
+  }
+
+  .price-card.featured { border: 2px solid var(--blue); }
+
+  .price-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-light);
+    margin-bottom: 8px;
+  }
+
+  .price-label.accent { color: var(--blue); }
+
+  .price-amount {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 2px;
+    letter-spacing: -0.5px;
+  }
+
+  .price-amount span {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-light);
+  }
+
+  .price-monthly {
+    font-size: 12px;
+    color: var(--blue);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .price-desc {
+    font-size: 12px;
+    color: var(--text-mid);
+    line-height: 1.5;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .price-features { list-style: none; padding: 0; }
+
+  .price-features li {
+    font-size: 12px;
+    color: var(--text-mid);
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .price-features li::before {
+    content: "✓";
+    color: var(--blue);
+    font-weight: 700;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+
+  .price-maintenance {
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+    background: var(--surface-off);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .price-maintenance h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .price-maintenance p {
+    font-size: 12px;
+    color: var(--text-mid);
+    line-height: 1.5;
+  }
+
+  .price-maintenance-amount {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+    letter-spacing: -0.3px;
+  }
+
+  .price-maintenance-amount span {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-light);
+  }
+
+  /* FORM */
+  .audit-box {
+    background: var(--surface-off);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+
+  .free-tag {
+    display: inline-block;
+    background: var(--blue-light);
+    color: var(--blue);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .audit-box h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .audit-box p {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  .form { display: flex; flex-direction: column; gap: 10px; }
+
+  .form input,
+  .form select,
+  .form textarea {
+    padding: 11px 14px;
+    border: 0.5px solid var(--border-strong);
+    border-radius: var(--radius);
+    font-size: 14px;
+    background: var(--surface);
+    color: var(--text);
+    width: 100%;
+    font-family: inherit;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: border-color 0.15s;
+    outline: none;
+  }
+
+  .form input:focus,
+  .form select:focus,
+  .form textarea:focus {
+    border-color: var(--blue);
+  }
+
+  .form select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394a3b8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-color: var(--surface);
+    padding-right: 36px;
+    cursor: pointer;
+  }
+
+  .form textarea {
+    resize: none;
+    height: 90px;
+    line-height: 1.6;
+  }
+
+  .form-btn {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 13px;
+    border-radius: var(--radius);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.15s;
+    font-family: inherit;
+  }
+
+  .form-btn:hover { background: #1d4ed8; }
+
+  .form-note {
+    font-size: 11px;
+    color: var(--text-light);
+    margin-top: 4px;
+    text-align: center;
+  }
+
+  /* ABOUT */
+  .about-row {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .about-av {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: var(--blue-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--blue);
+    flex-shrink: 0;
+  }
+
+  .about-text h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .about-text p {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 22px 24px;
+    background: var(--surface-off);
+    border-top: 0.5px solid var(--border);
+    text-align: center;
+  }
+
+  .footer p {
+    font-size: 12px;
+    color: var(--text-light);
+  }
+
+  .footer a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+
+  /* MOBILE */
+  @media (max-width: 500px) {
+    .hero h1 { font-size: 28px; }
+    .why-grid { grid-template-columns: 1fr; }
+    .price-cards { grid-template-columns: 1fr; }
+    .price-maintenance { flex-direction: column; align-items: flex-start; }
+    .trust-item { padding: 10px 12px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a class="logo" href="#">Auto<span>Mortgage</span></a>
+    <a class="nav-btn" href="#audit">Book free audit</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-tag">For independent UK mortgage brokers</div>
+    <h1>More leads.<br>Less effort.<br>Fully automated.</h1>
+    <p>We build professional websites and automated lead systems so mortgage brokers spend more time closing deals — not chasing enquiries.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#audit">Book a free website audit</a>
+      <a class="btn-secondary" href="#how">See what we do ↓</a>
+    </div>
+    <div class="hero-note">Free audit · No obligation · We reply instantly</div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-item"><div class="trust-dot"></div>UK based</div>
+    <div class="trust-item"><div class="trust-dot"></div>Live within 7 days</div>
+    <div class="trust-item"><div class="trust-dot"></div>Transparent pricing</div>
+    <div class="trust-item"><div class="trust-dot"></div>Built for brokers</div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="sec" id="how">
+    <div class="sec-label">How it works</div>
+    <h2>Three simple steps</h2>
+    <p class="sec-sub">From first contact to live website — here's exactly what happens.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h4>Book your free audit</h4>
+          <p>We review your current online presence and tell you exactly what's costing you leads — at no cost and no obligation.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h4>We craft your website</h4>
+          <p>We build a professional website tailored to your business, your brand, and your clients. You review and approve everything before it goes live.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h4>Clients start finding you</h4>
+          <p>Your new website goes live within 7 days. With a professional online presence, clients can find you, trust you, and contact you — automatically.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="sec" id="services">
+    <div class="sec-label">What we do</div>
+    <h2>Two simple services</h2>
+    <p class="sec-sub">Click either service to learn more about what's included.</p>
+
+    <div class="svc">
+      <div class="svc-hd" onclick="toggleSvc(this)">
+        <span class="svc-title">Website creation</span>
+        <span class="svc-right">
+          <span class="svc-tag tag-green">Most popular</span>
+          <span class="svc-chevron">▼</span>
+        </span>
+      </div>
+      <div class="svc-body">
+        <p>We craft a professional website built specifically for mortgage brokers — with care and attention to every detail. Every site includes a lead capture form and mobile-friendly design, and is live within days.</p>
+        <ul>
+          <li>Professional design tailored to your brand</li>
+          <li>Built-in contact and lead capture forms</li>
+          <li>Mobile friendly — looks great on all devices</li>
+          <li>Live within 7 days</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="svc">
+      <div class="svc-hd" onclick="toggleSvc(this)">
+        <span class="svc-title">Lead automation</span>
+        <span class="svc-right">
+          <span class="svc-tag tag-blue">Add-on</span>
+          <span class="svc-chevron">▼</span>
+        </span>
+      </div>
+      <div class="svc-body">
+        <p>We connect automated systems that capture enquiries, qualify each lead using AI, and send a personalised response instantly — so you never miss a potential client, even at 3am.</p>
+        <ul>
+          <li>AI reads and qualifies every enquiry automatically</li>
+          <li>Personalised response sent to the lead instantly</li>
+          <li>Instant notification sent to you</li>
+          <li>Works 24/7 even when you're with clients</li>
+          <li>Set up once, runs forever</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="sec" id="why">
+    <div class="sec-label">Why us</div>
+    <h2>Why brokers choose AutoMortgage</h2>
+    <p class="sec-sub">The numbers speak for themselves.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-stat">87%</div>
+        <div class="why-title">Clients Google you first</div>
+        <div class="why-desc">87% of people check a business online before making contact. No website means no client.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-stat">3×</div>
+        <div class="why-title">More enquiries online</div>
+        <div class="why-desc">Brokers with professional websites receive on average 3x more inbound enquiries than those without.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-stat">7</div>
+        <div class="why-title">Days to go live</div>
+        <div class="why-desc">From first conversation to live website in 7 days. Most agencies take 6–8 weeks.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-stat">£0</div>
+        <div class="why-title">Hidden fees</div>
+        <div class="why-desc">One fixed price, no surprises. Everything included upfront — you always know exactly what you're paying.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="sec" id="pricing">
+    <div class="sec-label">Pricing</div>
+    <h2>Simple, transparent pricing</h2>
+    <p class="sec-sub">One fixed price. No hidden fees. No surprises.</p>
+    <div class="price-cards">
+      <div class="price-card">
+        <div class="price-label">Website only</div>
+        <div class="price-amount">£299 <span>one off</span></div>
+        <div class="price-desc">Everything you need to get found online and look professional.</div>
+        <ul class="price-features">
+          <li>Professional website</li>
+          <li>Contact form included</li>
+          <li>Mobile friendly</li>
+          <li>Live in 7 days</li>
+          <li>No monthly fees</li>
+        </ul>
+      </div>
+      <div class="price-card featured">
+        <div class="price-label accent">Website + automation</div>
+        <div class="price-amount">£499 <span>one off</span></div>
+        <div class="price-monthly">+ £29/month for AI tools</div>
+        <div class="price-desc">Website plus AI-powered lead capture so you never miss an enquiry.</div>
+        <ul class="price-features">
+          <li>Everything in website</li>
+          <li>AI lead qualification</li>
+          <li>Instant personalised replies</li>
+          <li>Works 24/7</li>
+          <li>Set up once, runs forever</li>
+        </ul>
+      </div>
+    </div>
+    <div class="price-maintenance">
+      <div>
+        <h4>Monthly maintenance & updates</h4>
+        <p>We keep your website updated, secure, and running perfectly. Text changes, new sections, seasonal updates — all included.</p>
+      </div>
+      <div class="price-maintenance-amount">£29 <span>/month</span></div>
+    </div>
+  </section>
+
+  <!-- FREE AUDIT FORM -->
+  <section class="sec" id="audit">
+    <div class="sec-label">Free audit</div>
+    <h2>Get a free website audit</h2>
+    <div class="audit-box">
+      <div class="free-tag">100% FREE</div>
+      <h3>What you get — at no cost</h3>
+      <p>We review your current website (or lack of one) and tell you exactly what's costing you leads online. No sales pitch, no obligation — just honest advice.</p>
+    </div>
+    <div class="form" id="auditForm">
+      <input type="text" placeholder="Your name" required />
+      <input type="text" placeholder="Business name" required />
+      <input type="email" placeholder="Email address" required />
+      <input type="text" placeholder="Website URL (leave blank if you don't have one)" />
+      <select required>
+        <option value="" disabled selected>How many leads do you get online per month?</option>
+        <option>None currently</option>
+        <option>1–5 per month</option>
+        <option>6–15 per month</option>
+        <option>16–30 per month</option>
+        <option>30+ per month</option>
+      </select>
+      <select required>
+        <option value="" disabled selected>How do clients mainly find you?</option>
+        <option>Word of mouth and referrals</option>
+        <option>Google search or Maps</option>
+        <option>Social media</option>
+        <option>A mix of different sources</option>
+        <option>I'm not sure</option>
+      </select>
+      <textarea placeholder="What's your biggest challenge right now? (e.g. not enough enquiries, website looks outdated, no online presence at all)"></textarea>
+      <button class="form-btn" type="button" onclick="handleSubmit()">Get my free audit →</button>
+    </div>
+    <div class="form-note">We reply instantly. Your details are never shared or sold.</div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="sec" id="about">
+    <div class="sec-label">About</div>
+    <h2>Who's behind AutoMortgage</h2>
+    <div class="about-row">
+      <div class="about-av">NT</div>
+      <div class="about-text">
+        <h3>Nikita Trykur</h3>
+        <p>At 19, I combine deep technical expertise in AI and computing with a sharp commercial mindset — building professional websites and automated systems that help independent mortgage brokers get found online and never miss a lead. Based in the UK.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 AutoMortgage · <a href="https://automortgage.co.uk">automortgage.co.uk</a> · <a href="mailto:nikitatrykur@gmail.com">nikitatrykur@gmail.com</a></p>
+  </footer>
+
+</div>
+
+<script>
+  function toggleSvc(header) {
+    const body = header.nextElementSibling;
+    const chevron = header.querySelector('.svc-chevron');
+    const isOpen = body.classList.contains('open');
+    body.classList.toggle('open', !isOpen);
+    chevron.classList.toggle('open', !isOpen);
+  }
+
+  function handleSubmit() {
+    const btn = document.querySelector('.form-btn');
+    btn.textContent = 'Submitted! We\'ll be in touch shortly.';
+    btn.style.background = '#16a34a';
+    btn.disabled = true;
+    // AUTOMATION PLACEHOLDER — connect Google Apps Script URL here
+    // jsonpRequest(APPS_SCRIPT_URL + '?data=' + encodeURIComponent(JSON.stringify(formData)));
+  }
+</script>
+
+</body>
+</html>
